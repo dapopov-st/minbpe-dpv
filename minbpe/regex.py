@@ -54,7 +54,7 @@ class RegexTokenizer(Tokenizer):
                 get_stats(chunk_ids, stats)
             
             # find the pair with the highest count, lexicographically smallest in case of tie
-            pair = max(stats.items(), key=lambda item: (item[1], item[0]))[0]
+            pair = max(stats.items(), key=lambda item: (item[1],  -item[0][0], -item[0][1]))[0]
             
             # mint a new token: assign it the next available id
             idx = 256 + i
